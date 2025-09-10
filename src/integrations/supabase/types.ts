@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string
+          farm_size: number | null
+          farming_experience: number | null
+          full_name: string | null
+          id: string
+          language_preference: string | null
+          location: string | null
+          phone: string | null
+          primary_crops: string[] | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          farm_size?: number | null
+          farming_experience?: number | null
+          full_name?: string | null
+          id?: string
+          language_preference?: string | null
+          location?: string | null
+          phone?: string | null
+          primary_crops?: string[] | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          farm_size?: number | null
+          farming_experience?: number | null
+          full_name?: string | null
+          id?: string
+          language_preference?: string | null
+          location?: string | null
+          phone?: string | null
+          primary_crops?: string[] | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
