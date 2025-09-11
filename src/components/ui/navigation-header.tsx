@@ -1,20 +1,6 @@
-import { Wheat, Menu, Bell, Globe, LogIn, LogOut, User } from "lucide-react";
-import { Button } from "./button";
-import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Wheat, Menu } from "lucide-react";
 
 const NavigationHeader = () => {
-  const { user, signOut } = useAuth();
-  const navigate = useNavigate();
-
-  const handleAuthAction = () => {
-    if (user) {
-      signOut();
-    } else {
-      navigate('/auth');
-    }
-  };
-
   return (
     <header className="bg-card border-b border-border shadow-gentle">
       <div className="container mx-auto px-4 py-3">
@@ -34,43 +20,9 @@ const NavigationHeader = () => {
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-2">
-            {user && (
-              <>
-                <Button variant="ghost" size="icon" className="relative">
-                  <Bell className="w-5 h-5" />
-                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-destructive rounded-full text-xs"></span>
-                </Button>
-                <Button variant="ghost" size="icon">
-                  <Globe className="w-5 h-5" />
-                </Button>
-                <Button variant="ghost" size="icon">
-                  <User className="w-5 h-5" />
-                </Button>
-              </>
-            )}
-            <Button 
-              variant={user ? "ghost" : "earth"} 
-              size="sm"
-              onClick={handleAuthAction}
-              className="flex items-center gap-2"
-            >
-              {user ? (
-                <>
-                  <LogOut className="w-4 h-4" />
-                  <span className="hidden sm:inline">Sign Out</span>
-                </>
-              ) : (
-                <>
-                  <LogIn className="w-4 h-4" />
-                  <span className="hidden sm:inline">Sign In</span>
-                </>
-              )}
-            </Button>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="w-5 h-5" />
-            </Button>
+          {/* Mobile menu button */}
+          <div className="flex items-center gap-4">
+            <Menu className="h-4 w-4" />
           </div>
         </div>
       </div>
